@@ -1,0 +1,22 @@
+.left-arrow {
+  font-size: 60px;
+}
+.left-arrow:hover {
+  color: red;
+  transform: translateY(3px);
+}
+
+.info-container img {
+  height: 300px;
+  width: 300px;
+}
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-container span {
+  font-weight: 500;
+}

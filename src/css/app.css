@@ -1,0 +1,51 @@
+.category-container {
+  display: flex;
+  justify-content: center;
+  color: antiquewhite;
+  padding: 5px;
+  gap: 29px;
+}
+
+.category-container :hover {
+  cursor: pointer;
+  transform: translateY(1.5px);
+}
+.drinks-image {
+  height: 200px;
+  width: 200px;
+}
+.drinks-image:hover {
+  cursor: pointer;
+}
+.category-Dynamic {
+  background-color: floralwhite;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  border: 2px solid whitesmoke;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
+}
+.image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+}
+.loading-icon {
+  font-size: 100px;
+  animation: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
