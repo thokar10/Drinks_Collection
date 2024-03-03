@@ -8,12 +8,13 @@ const SingleDrinks = () => {
   const navigate = useNavigate();
 
   const [singleDrinks, setSingleDrinks] = useState([]);
+
   useEffect(() => {
-    getSignleDrinks();
+    getSingleDrinks();
   }, []);
 
   const params = useParams();
-  const getSignleDrinks = async () => {
+  const getSingleDrinks = async () => {
     try {
       const response = await axios.get(
         `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${params.drinks_id}`
@@ -29,7 +30,7 @@ const SingleDrinks = () => {
 
   return (
     <>
-      <div className="flex gap-2 items-center">
+      <div>
         <IoChevronBackCircleSharp
           className="left-arrow"
           onClick={() => {
@@ -38,23 +39,32 @@ const SingleDrinks = () => {
         />
       </div>
 
-      <div className="bdy">
-        {singleDrinks.map((element) => {
-          return (
-            <>
-              <div className="info-container">
-                <img src={element.strDrinkThumb} alt="" />
-                <p>
+      {singleDrinks.map((element) => {
+        return (
+          <>
+            <div className="info-container">
+              <div
+                className="image-drinks"
+                style={{ backgroundImage: `URL(${element.strDrinkThumb})` }}
+              ></div>
+              <div className="info-drinks p-3">
+                <p className="para">
                   {" "}
-                  <span>id:</span>
-                  {element.idDrink}
+                  Drinks_id:&nbsp;
+                  <span>{element.idDrink}</span>
                 </p>
-                <p>{element.strDrink}</p>
+                <p className="para">
+                  Drinks_name:&nbsp;<span>{element.strDrink}</span>
+                </p>
+                <div className="flex">
+                  <p> Drinks_instructions:&nbsp;</p>
+                  <p className="span"> {element.strInstructions} </p>
+                </div>
               </div>
-            </>
-          );
-        })}
-      </div>
+            </div>
+          </>
+        );
+      })}
     </>
   );
 };
